@@ -1,0 +1,12 @@
+name: tntspawner
+version: '1.0.0'
+main: me.johns.tntspawner.Tntspawner
+api-version: '1.21'
+
+commands:
+  tnt:
+    description: "enable/disable tnt spawning"
+    usage: "/tnt"
+    aliases:
+    permission: cowcannon.command.cow
+    permission-message: "You do not have permission to use this command"
