@@ -39,7 +39,5 @@ public class TntTask implements Runnable{
     public static TntTask getInstance() {
         return instance;
     }
-
-
 }
 

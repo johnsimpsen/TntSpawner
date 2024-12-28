@@ -5,8 +5,12 @@ api-version: '1.21'
 
 commands:
   tnt:
-    description: "enable/disable tnt spawning"
+    description: "enable, disable, and set interval for tnt spawning"
     usage: "/tnt"
     aliases:
     permission: cowcannon.command.cow
     permission-message: "You do not have permission to use this command"
+
+permissions:
+  Tntspawner.command.tnt:
+    default: op

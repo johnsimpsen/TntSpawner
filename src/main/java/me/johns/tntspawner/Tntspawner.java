@@ -5,7 +5,9 @@ import org.bukkit.scheduler.BukkitTask;
 
 public final class Tntspawner extends JavaPlugin {
 
-    private BukkitTask task;
+    public BukkitTask task;
+
+    public static int interval = 6;
 
     @Override
     public void onEnable() {
@@ -14,7 +16,7 @@ public final class Tntspawner extends JavaPlugin {
 
         getCommand("tnt").setExecutor(new TntspawnerCommand());
 
-        task = getServer().getScheduler().runTaskTimer(this, TntTask.getInstance(), 0, 20 * 6);
+        task = getServer().getScheduler().runTaskTimer(this, TntTask.getInstance(), (long) 20 * interval, (long) 20 * interval);
 
     }
 
@@ -24,6 +26,11 @@ public final class Tntspawner extends JavaPlugin {
         TntTask.disableSpawns();
 
         getLogger().info("TNT Spawner has stopped");
+    }
+
+    public void setTask() {
+        task.cancel();
+        task = getServer().getScheduler().runTaskTimer(this, TntTask.getInstance(), (long) 20 * interval, (long) 20 * interval);
     }
 
     public static Tntspawner getInstance() {
