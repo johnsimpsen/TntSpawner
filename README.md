@@ -1,4 +1,4 @@
-**Plugin Version:** 1.1
+**Plugin Version:** 1.1.0
 
 **Game Version:** Java 1.21.1+
 
