@@ -12,18 +12,20 @@ public final class Tntspawner extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getLogger().info("TNT Spawner is running");
+        TntSettings.getInstance().load();
 
         getCommand("tnt").setExecutor(new TntspawnerCommand());
 
         task = getServer().getScheduler().runTaskTimer(this, TntTask.getInstance(), (long) 20 * interval, (long) 20 * interval);
 
+        getLogger().info("TNT Spawner is running");
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        TntTask.disableSpawns();
+        TntTask.getInstance().disableSpawns();
+        TntSettings.getInstance().save();
 
         getLogger().info("TNT Spawner has stopped");
     }
